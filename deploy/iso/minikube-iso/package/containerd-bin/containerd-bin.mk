@@ -20,6 +20,11 @@ define CONTAINERD_BIN_INSTALL_TARGET_CMDS
 	$(INSTALL) -D -m 0755 \
 		$(@D)/ctr \
 		$(TARGET_DIR)/bin/ctr
+	
+	$(INSTALL) -D -m 0755 \
+		$(@D)/containerd-shim \
+		$(TARGET_DIR)/bin/containerd-shim
+
 
 endef
 
