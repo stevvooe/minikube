@@ -1,5 +1,5 @@
 [Unit]
-Description=Docker Socket for the API
+Description=containerd Socket for the API
 PartOf=containerd.service
 
 [Socket]
