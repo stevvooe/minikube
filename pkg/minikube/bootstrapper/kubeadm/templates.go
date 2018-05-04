@@ -46,7 +46,7 @@ ExecStart=
 ExecStart=/usr/bin/kubelet {{.ExtraOptions}} {{if .FeatureGates}}--feature-gates={{.FeatureGates}}{{end}}
 
 [Install]
-{{if or (eq .ContainerRuntime "cri-o") (eq .ContainerRuntime "cri")}}Wants=crio.service{{else}}Wants=docker.socket{{end}}
+{{if or (eq .ContainerRuntime "cri-o") (eq .ContainerRuntime "cri")}}Wants=crio.service{{else if eq .ContainerRuntime "containerd"}}Wants=containerd.service{{else}}Wants=docker.socket{{end}}
 `))
 
 const kubeletService = `

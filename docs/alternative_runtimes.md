@@ -1,3 +1,14 @@
+### Using containerd
+
+To use [containerd](https://github.com/containerd/containerd) as the runtime,
+use the following flags:
+
+```shell
+$ minikube start \
+    --network-plugin=cni \
+    --container-runtime=containerd
+```
+
 ### Using rkt container engine
 
 To use [rkt](https://github.com/coreos/rkt) as the container runtime run:
