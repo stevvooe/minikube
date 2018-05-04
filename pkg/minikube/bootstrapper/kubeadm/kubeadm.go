@@ -213,6 +213,11 @@ func SetContainerRuntime(cfg map[string]string, runtime string) map[string]strin
 	}
 
 	switch runtime {
+	case "containerd":
+		cfg["container-runtime"] = "remote"
+		cfg["container-runtime-endpoint"] = "/run/containerd/containerd.sock"
+		cfg["image-service-endpoint"] = "/run/containerd/containerd.sock"
+		cfg["runtime-request-timeout"] = "15m"
 	case "crio", "cri-o":
 		cfg["container-runtime"] = "remote"
 		cfg["container-runtime-endpoint"] = "/var/run/crio/crio.sock"
