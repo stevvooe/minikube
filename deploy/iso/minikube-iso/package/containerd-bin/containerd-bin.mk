@@ -9,7 +9,7 @@ CONTAINERD_BIN_SITE = https://github.com/containerd/containerd/releases/download
 CONTAINERD_BIN_SOURCE = containerd-$(CONTAINERD_BIN_VERSION).linux-amd64.tar.gz 
 
 define CONTAINERD_BIN_USERS
-	- -1 containerd -1 - - - - -
+	- -1 docker -1 - - - - -
 endef
 
 define CONTAINERD_BIN_INSTALL_TARGET_CMDS
@@ -24,7 +24,6 @@ define CONTAINERD_BIN_INSTALL_TARGET_CMDS
 	$(INSTALL) -D -m 0755 \
 		$(@D)/containerd-shim \
 		$(TARGET_DIR)/bin/containerd-shim
-
 
 endef
 
