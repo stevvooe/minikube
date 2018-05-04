@@ -27,7 +27,11 @@ define CONTAINERD_BIN_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 644 \
 		$(BR2_EXTERNAL)/package/containerd-bin/containerd.socket \
 		$(TARGET_DIR)/run/containerd/containerd.sock
-
+        
+        $(INSTALL) -D -m 644 \
+		$(BR2_EXTERNAL_MINIKUBE_PATH)/package/containerd-bin/containerd.service \
+		$(TARGET_DIR)/etc/systemd/system/containerd.service
+ 	
 endef
 
 $(eval $(generic-package))
