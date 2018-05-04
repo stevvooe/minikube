@@ -25,12 +25,9 @@ endef
 
 define CONTAINERD_BIN_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 644 \
-		$(BR2_EXTERNAL)/package/docker-bin/docker.socket \
-		$(TARGET_DIR)/usr/lib/systemd/system/docker.socket
+		$(BR2_EXTERNAL)/package/containerd-bin/containerd.socket \
+		$(TARGET_DIR)/run/containerd/containerd.sock
 
-	$(INSTALL) -D -m 644 \
-		$(BR2_EXTERNAL_MINIKUBE_PATH)/package/docker-bin/forward.conf \
-		$(TARGET_DIR)/etc/sysctl.d/forward.conf
 endef
 
 $(eval $(generic-package))
