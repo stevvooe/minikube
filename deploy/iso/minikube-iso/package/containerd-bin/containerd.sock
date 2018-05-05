@@ -5,7 +5,7 @@ PartOf=containerd.service
 [Socket]
 ListenStream=/var/run/containerd.sock
 SocketMode=0660
-SocketUser=root
+SocketUser=containerd
 SocketGroup=containerd
 
 [Install]
